@@ -5,10 +5,10 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.set('view engine', 'pug');
-app.set('views', __dirname + '/views/');
+app.set('view engine', 'ejs');
+//app.set('views', __dirname + '/views/');
 
-const search = require('./routes/search.js')
+const search = require('./routes/search')
 app.use('/search', search);
 
 app.get('/', (req, res) => {

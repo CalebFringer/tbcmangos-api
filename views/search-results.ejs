@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<script>
+			const whTooltips = {
+				colorLinks: false, 
+				iconizeLinks: true, 
+				renameLinks: true
+			};
+		</script>
+		<script src="https://wow.zamimg.com/widgets/power.js"></script>
+	</head>
+	<body>
+		<ul>
+			<% urls.forEach(url => { %>
+        <li>
+					<a href=<%= url %>>url</a>
+				</li>
+      <% }) %>
+		</ul>
+	</body>
+</html>
