@@ -7,15 +7,18 @@ router.get('/', (req, res) => {
     const dbQuery = `SELECT entry, name FROM item_template WHERE name LIKE "%${req.query.itemName}%"`;
     db.query(dbQuery, (err, results) => {
         if (err) res.send(err);
-        else {
-            const urls = [];
+
+        if (results.length > 0) {
             //console.log(results);
+            const urls = [];
             for (item of results) {
                 const url = `https://tbc.wowhead.com/item=${item.entry}/`;
                 urls.push(url);
             }
             //console.log(urls);
             res.render('search-results', {urls:urls});
+        } else {
+            res.send('No item found.');
         }
     });
 });
