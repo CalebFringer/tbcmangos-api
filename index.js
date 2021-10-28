@@ -5,6 +5,9 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.set('view engine', 'pug');
+app.set('views', __dirname + '/views/');
+
 const search = require('./routes/search.js')
 app.use('/search', search);
 
